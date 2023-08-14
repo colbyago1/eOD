@@ -1,0 +1,14 @@
+<ROSETTASCRIPTS>
+	<SCOREFXNS>
+		<ScoreFunction name="low" weights="cen_std" />
+		<ScoreFunction name="sfxn_beta" weights="beta_nov16_cst">
+			<Reweight scoretype="atom_pair_constraint" weight="1.0" />
+		</ScoreFunction>
+	</SCOREFXNS>
+	<MOVERS>
+		<Docking name="dock" score_low="low" score_high="sfxn_beta" fullatom="0" local_refine="0" jumps="1" optimize_fold_tree="1" conserve_foldtree="0" design="0" ignore_default_docking_task="1" />
+	</MOVERS>
+	<PROTOCOLS>
+		<Add mover="dock" />
+	</PROTOCOLS>
+</ROSETTASCRIPTS>
